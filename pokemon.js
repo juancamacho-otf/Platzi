@@ -4,6 +4,11 @@ let vidasEnemigo=3
 let vidasJugador=3
 // al cargar el html va inicar esta funcion estamos llamando el id y escuchando el evento clikc 
 function iniciarJuego(){
+    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+    sectionSeleccionarAtaque.style.display = 'none'
+
+    let sectionReiniciar = document.getElementById('reiniciar')
+    sectionReiniciar.style.display = 'none'
     let botonPokemon= document.getElementById("selecPok")
     botonPokemon.addEventListener('click',selecionPokemon)
     
@@ -13,6 +18,9 @@ function iniciarJuego(){
     botonAgua.addEventListener('click', ataqueAgua)
     let botonTierra = document.getElementById('boton-tierra')
     botonTierra.addEventListener('click', ataqueTierra)
+    let botonReiniciar = document.getElementById('boton-reiniciar')
+    botonReiniciar.addEventListener('click', reiniciarJuego)
+
 }
 //llamamos los id de los input, ademas llamamos el id del span. 
 /* 
@@ -42,6 +50,12 @@ y cambiarle el valor que tiene, asi mismo es validando la aleatoridad que tiene 
 */
 
 function selecionPokemonpc(){
+    let sectionSeleccionarMascota = document.getElementById('seleccionarPokemon')
+    sectionSeleccionarMascota.style.display = 'none'
+    
+    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+    sectionSeleccionarAtaque.style.display = 'block'
+    
     let pokemonAleatoria = aleatorio(1,3)
     let pokemonEne = document.getElementById('pokemon-enemigo')
 
@@ -148,5 +162,27 @@ function crearMensajeFinal(resultadoFinal) {
 function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
+function crearMensajeFinal(resultadoFinal) {
+    let sectionMensajes = document.getElementById('mensajes')
+    
+    let parrafo = document.createElement('p')
+    parrafo.innerHTML = resultadoFinal
+
+    sectionMensajes.appendChild(parrafo)
+
+    let botonFuego = document.getElementById('boton-fuego')
+    botonFuego.disabled = true
+    let botonAgua = document.getElementById('boton-agua')
+    botonAgua.disabled = true
+    let botonTierra = document.getElementById('boton-tierra')
+    botonTierra.disabled = true
+
+    let sectionReiniciar = document.getElementById('reiniciar')
+    sectionReiniciar.style.display = 'block'
+}
+function reiniciarJuego() {
+    location.reload()
+}
+
 //le estamos  diciendo a la ventana del navegador que escuche despues de cargar el html asi no nos va a dar errores 
 window.addEventListener('load', iniciarJuego)  
