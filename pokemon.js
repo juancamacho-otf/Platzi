@@ -1,3 +1,7 @@
+let ataqueJugador
+let ataqueEnemigo
+let vidasEnemigo=3
+let vidasJugador=3
 // al cargar el html va inicar esta funcion estamos llamando el id y escuchando el evento clikc 
 function iniciarJuego(){
     let botonPokemon= document.getElementById("selecPok")
@@ -111,6 +115,14 @@ function combate() {
         vidasJugador--
         spanVidasJugador.innerHTML = vidasJugador
     }
+    revisarVidas()
+}
+function revisarVidas(){
+    if (vidasEnemigo== 0 ){
+        crearMensajeFinal("FELICITACIONES! Ganaste :)")
+    }else if (vidasJugador == 0){
+        crearMensajeFinal('Lo siento, perdiste :(')
+    }
 }
 // creal el mensaje de lo de que esta haciendo
 function crearMensaje(resultado) {
@@ -122,6 +134,14 @@ function crearMensaje(resultado) {
     sectionMensajes.appendChild(parrafo)
 }
 
+function crearMensajeFinal(resultadoFinal) {
+    let sectionMensajes = document.getElementById('mensajes')
+    
+    let parrafo = document.createElement('p')
+    parrafo.innerHTML = resultadoFinal
+
+    sectionMensajes.appendChild(parrafo)
+}
 
 
 // esta funcion debe tener muy presente porque es la manera de dar un rago a la aleotoridad 
