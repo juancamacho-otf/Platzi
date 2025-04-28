@@ -5,30 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="pokemon.js"></script>
+    <link rel="stylesheet" href="./style.css">
     <title>Pokemon</title>
 </head>
 
 <body>
-    <h1>Pokemon</h1>
+    <div class="titulo">
+        <h1>Pokemon</h1>
+    </div>
+
+
     <section id="seleccionarPokemon">
-        <!-- tener en cuenta que los label solo es para mostrar en la pantalla algo estatico-->
-        <label for="pikachu">Pikachu</label>
-        <!--tener en cuenta que los input son como cuando en python uno pide a el usuario que dijite algo darle la oportunidad  de interacutuar-->
-        <input type="radio" name="pokemon" id="pikachu">
+        <div class="tarjetas">
+            <label for="pikachu" class="tarjeta-de-mokepon">
+                <input type="radio" name="pokemon" id="pikachu">
+                <p>Pikachu</p>
+            </label>
 
-        <label for="charmander">Charmander</label>
-        <input type="radio" name="pokemon" id="charmander">
+            <label for="charmander" class="tarjeta-de-mokepon">
+                <input type="radio" name="pokemon" id="charmander">
+                <p>Charmander</p>
+            </label>
 
-        <label for="squirtle ">Squirtle </label>
-        <input type="radio" name="pokemon" id="squirtle">
-
-        <button id="selecPok">Seleccionar</button>
+            <label for="squirtle" class="tarjeta-de-mokepon">
+                <input type="radio" name="pokemon" id="squirtle">
+                <p>Squirtle</p>
+            </label>
+        </div>
+        <div class="Botonselecpok">
+            <button id="selecPok" class="selecPok">Seleccionar</button>
+        </div>
     </section>
 
+
     <section id="seleccionar-ataque">
-        <h2>Elige tu ataque:</h2>
+        <div class="subtitulo">
+            <h2>Elige tu ataque:</h2>
+        </div>
         <!-- aca con el span le damos un id paraa que ese span sea variable en cuanto lo llamamos en el js le podemos dar la variable numero o lo que querramos -->
-        <p>Tu mascota <span id="pokemon-jugador"></span> tiene <span id="vidas-jugador">3</span> vidas</p>
+        <div class="tarjetaJugador">
+            <p>Tu mascota <span id="pokemon-jugador"></span> tiene <span id="vidas-jugador">3</span> vidas</p>
+        </div>
         <p>La mascota <span id="pokemon-enemigo"></span> del enemigo tiene <span id="vidas-enemigo">3</span> vidas</p>
 
         <p>
